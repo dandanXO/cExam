@@ -43,7 +43,7 @@ div.flex.flex-row.flex-wrap.justify-center.gap-4
   //- pages
   button(
     v-for="pageNo in pagination"
-    :class="[pageNo === currentPageNo ? 'bg-blue-500 text-white' : 'bg-gray-200']"
+    :class="[pageNo === currentPageNo ? 'bg-green-300 text-white' : 'bg-gray-200']"
     @click="setPage(pageNo || currentPageNo);"
   ).inline-grid.place-items-center.aspect-square.w-12 {{ pageNo || '...' }}
 

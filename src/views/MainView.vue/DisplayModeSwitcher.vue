@@ -12,7 +12,7 @@ div.flex.flex-row.flex-wrap.items-center.gap-1
 
   button.rounded(
     v-for="displayMode in availableDisplayModes"
-    :class="[displayMode.key === currentDisplayMode ? 'text-white bg-blue-500 shadow-md shadow-blue-300' : 'text-blue-500']"
+    :class="[displayMode.key === currentDisplayMode ? 'text-white bg-red-500 shadow-md shadow-blue-300' : 'text-red-500']"
     @click="currentDisplayMode = displayMode.key;"
   ).inline-grid.place-items-center.aspect-square.w-12.transition.cursor-pointer.text-4xl
 

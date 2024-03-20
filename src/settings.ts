@@ -2,8 +2,6 @@
 
 export const availableTabs = [
   { key: 'all', name: 'ALL' },
-  { key: 'male', name: 'Male' },
-  { key: 'female', name: 'Female' },
   { key: 'favorite', name: 'Favorite' },
 ] as const;
 

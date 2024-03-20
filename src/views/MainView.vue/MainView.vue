@@ -30,11 +30,11 @@ const {
 
 const filteredUsersTabs = Vue.reactive({
   all: Vue.computed(() => allUsers.value.slice()),
-  male: Vue.computed(() => allUsers.value.filter((user) => user.gender === 'male')),
-  female: Vue.computed(() => allUsers.value.filter((user) => user.gender === 'female')),
   favorite: Vue.computed(() => allUsers.value.filter((user) => favoriteUsers.value.has(user))),
 });
 const filteredUsers = Vue.computed(() => filteredUsersTabs[currentTab.value]);
+
+// console.log(filteredUsers)
 
 const favoriteUsersLength = Vue.computed(() => filteredUsersTabs.favorite.length);
 
@@ -74,7 +74,6 @@ async function pickRandomUsersForMe() {
 <template lang="pug">
 
 header.fixed.top-0.left-0.right-0.bg-white.z-10.shadow-md(ref="headerElementRef")
-
   div.container.mx-auto.p-8
 
     div.flex.flex-row.flex-wrap.justify-between.gap-6.text-3xl
@@ -98,7 +97,6 @@ header.fixed.top-0.left-0.right-0.bg-white.z-10.shadow-md(ref="headerElementRef"
         DisplayModeSwitcher
 
 main.static
-
   div.container.mx-auto.px-8.min-h-screen(
     :style="{ ...mainContentPaddings }"
   )
@@ -114,7 +112,7 @@ main.static
 
           span(v-if="isUsersDataLoading")
             Icon.inline.text-4xl.mr-4.mb-1.animate-spin(icon="mdi:loading")
-            | Loading users ...
+            | Loading  ...
 
           span(v-else-if="usersDataError").text-red-500
             Icon.inline.text-4xl.mr-4.mb-1(icon="mdi:alert-circle-outline")
@@ -123,7 +121,7 @@ main.static
           span(v-else-if="currentTab === 'favorite'")
             | You have no favorite user yet.
             br
-            | Try go #[a.font-semibold.text-blue-500.underline(href="javascript:;" @click="pickRandomUsersForMe") adding some] :)
+            | #[a.font-semibold.text-red-500.underline(href="javascript:;" @click="pickRandomUsersForMe") rundom ADD]
 
           span(v-else)
             | No user.
